@@ -13,7 +13,9 @@ const Child = ({isLoggedIn, setIsLoggedIn}) => {
     }
   return (
     <div>
-      <form onSubmit={handleLogin}>
+        {
+            isLoggedIn ? <p>You are logged in!</p> :
+            <form onSubmit={handleLogin}>
         Username:<input type='text' name='username' 
         value={username} 
         onChange={(e)=>setUsername(e.target.value)}/>
@@ -22,10 +24,9 @@ const Child = ({isLoggedIn, setIsLoggedIn}) => {
         onChange={(e)=>setPassword(e.target.value)}/>
         <button>Login</button>
       </form>
+        }
+      
 
-      {
-        isLoggedIn && <p>You are logged in!</p>
-      }
     </div>
   )
 }
